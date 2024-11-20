@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadEventos.NewPage1"
+             Title=""
+             BackgroundColor="Black">
+
+    <Grid>
+        <!-- Background fundo -->
+        <Image VerticalOptions="CenterAndExpand"
+                Source="image01.png" 
+                Aspect="AspectFit"
+                Opacity="1" />
+
+        <ScrollView>
+            <VerticalStackLayout>
+
+                <!-- Resumo -->
+                <Frame VerticalOptions="CenterAndExpand"
+                       Padding="10"
+                        Margin="28"
+                        BackgroundColor="LightSteelBlue"
+                        Opacity="0.8">
+
+                    <Label Text="Resumo do Evento" 
+                           TextColor="Black" 
+                           FontFamily="Neometra"
+                           FontSize="Title"/>
+                </Frame>
+                <!-- Frame externo -->
+                <Frame 
+                        VerticalOptions="CenterAndExpand"     
+                        Padding="10" 
+                        Margin="25"
+                        BackgroundColor="LightSteelBlue"
+                        Opacity="0.8">
+
+                    <Grid RowDefinitions="*, *, *, *, *, *, *, *, *" ColumnDefinitions="*, *">
+
+                        <!-- Nome -->
+                        <Label Grid.Row="0" Grid.ColumnSpan="2" 
+                            Text="Nome do Evento" 
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            FontFamily="CreatoDisplay"
+                            TextColor="Black"
+                            Padding="15" 
+                            BackgroundColor="LightSteelBlue"
+                            Opacity="0.8"/>
+                        <Label Grid.Row="1" Grid.ColumnSpan="2" 
+                           Text="{Binding Nome}" 
+                           TextColor="DarkBlue"
+                           FontFamily="CreatoDisplay"
+                           FontSize="18"
+                           FontAttributes="Bold"/>
+
+                        <!-- Data Inicio -->
+                        <Label Grid.Row="2" Grid.Column="0" 
+                             Text="Data de Início:   " 
+                             FontSize="15"
+                             FontAttributes="Bold"
+                             FontFamily="CreatoDisplay"
+                             TextColor="Black"
+                             Padding="5"
+                             Opacity="0.8"/>
+
+                        <Label Grid.Row="2" Grid.Column="1" 
+                           Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           TextColor="DarkBlue"
+                                   FontSize="15"/>
+
+                        <!-- Data Fim -->
+                        <Label Grid.Row="3" Grid.Column="0"
+                           Text="     Data de Término: " 
+                           FontSize="15"
+                            FontAttributes="Bold"
+                            FontFamily="CreatoDisplay"
+                            TextColor="Black"
+                            Padding="10"
+                            Opacity="0.8"/>
+
+                        <Label Grid.Row="3" Grid.Column="1"
+                           Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                           TextColor="DarkBlue"
+                           FontSize="15"/>
+
+                        <!-- Participantes -->
+                        <Label Grid.Row="4" Grid.Column="0" 
+                           Text="  Nº de &#x0a;    Participante(s): " 
+                           FontSize="15"
+                            FontAttributes="Bold"
+                            FontFamily="CreatoDisplay"
+                            TextColor="Black"
+                            Padding="10"
+                            Opacity="0.8"/>
+
+                        <Label Grid.Row="4" Grid.Column="1" 
+                           Text="{Binding QntParticipantes}" 
+                           TextColor="DarkBlue"
+                           FontSize="15"/>
+
+                        <Label Grid.Row="5" Grid.Column="0"/>
+
+                        <!-- Local -->
+                        <Label Grid.Row="6" Grid.ColumnSpan="2" 
+                           Text="Local do Evento" 
+                            FontSize="15"
+                             FontAttributes="Bold"
+                             FontFamily="CreatoDisplay"
+                             TextColor="Black"
+                             Padding="15" 
+                             BackgroundColor="LightSteelBlue"
+                             Opacity="0.8"/>
+
+                        <Label Grid.Row="7" Grid.ColumnSpan="2" 
+                           Text="{Binding Local}" 
+                           TextColor="DarkBlue"
+                            FontFamily="CreatoDisplay"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+
+                        <!-- Total -->
+                        <Grid Grid.Row="8" Grid.ColumnSpan="2" RowDefinitions="*, *, *, *" ColumnDefinitions="*, *">
+
+                            <Label Grid.Row="0" Grid.Column="0" 
+                               Text="Participante(s): " 
+                               FontSize="15"
+                                FontAttributes="Bold"
+                                FontFamily="CreatoDisplay"
+                                TextColor="Black"
+                                Padding="5"
+                                Opacity="0.8"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" 
+                               Text="{Binding CustoParticipante, StringFormat='{}{0:c}'}" 
+                               TextColor="DarkBlue"
+                                FontSize="15"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" 
+                               Text="Diária(s): " 
+                              FontSize="15"
+                                FontAttributes="Bold"
+                                FontFamily="CreatoDisplay"
+                                TextColor="Black"
+                                Padding="5"
+                                Opacity="0.8"/>
+
+                            <Label Grid.Row="1" Grid.Column="1" 
+                               Text="{Binding CustoDiaria, StringFormat='{}{0:c}'}" 
+                               TextColor="DarkBlue"
+                                FontSize="15"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" 
+                               Text="Total: " 
+                               FontSize="15"
+                                FontAttributes="Bold"
+                                FontFamily="CreatoDisplay"
+                                TextColor="Black"
+                                Padding="5"
+                                Opacity="0.8"/>
+
+                            <Label Grid.Row="2" Grid.Column="1" 
+                               Text="{Binding CustoEvento, StringFormat='{}{0:c}'}" 
+                               TextColor="DarkBlue"
+                               FontSize="15"/>
+
+                            <Label Grid.Row="3" Grid.Column="0"/>
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Button x:Name="bnt_voltar" 
+                    Text="VOLTAR" 
+                    FontFamily="CreatoDisplay"
+                    TextColor="Black" 
+                    FontAttributes="Bold"
+                     BackgroundColor="LightSteelBlue"
+                     Opacity="0.8"
+                     HorizontalOptions="Center" 
+                    Clicked="bnt_voltar_Clicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>
